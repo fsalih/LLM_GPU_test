@@ -1,4 +1,10 @@
 # Инструкция по проверке работы LLM на графическом процессоре:
+Читай тут:
+https://github.com/abetlen/llama-cpp-python?tab=readme-ov-file
+
+
+# Все ниже для старых версий
+
 1. Необходимо, чтобы среда выполнения имела доступ к графическому процессору. Я обычно для windows тестирую через torch (cuda_test.py).  Как делать тест для Apple не могу сказать - нет у меня такого аппарата. 
 2. Для запуска LLM на Apple нужно установить llama-cpp-python по команде: 
 !CMAKE_ARGS="-DLLAMA_METAL=on" FORCE_CMAKE=1 pip install --upgrade --force-reinstall llama-cpp-python --no-cache-dir
@@ -21,3 +27,9 @@ IMPORTANT: If you have already installed a cpu only version of the package, you 
 
 ## Информация взята с источника:
 https://python.langchain.com/v0.1/docs/integrations/llms/llamacpp/
+
+https://pypi.org/project/llama-cpp-python-binary/
+
+https://huggingface.co/TheBloke/Garrulus-GGUF
+
+https://github.com/ggerganov/llama.cpp

@@ -12,6 +12,7 @@ file_path = 'Meta-Llama-3-8B-Instruct.Q4_1.gguf'
 if os.path.isfile(file_path):
     pass
 else:
+    print('Loading model ...')
     url = 'https://huggingface.co/QuantFactory/Meta-Llama-3-8B-Instruct-GGUF/resolve/main/Meta-Llama-3-8B-Instruct.Q4_1.gguf'
     response = requests.get(url)
 
@@ -22,8 +23,8 @@ else:
 # Chat Completion API
 llm = Llama(model_path="Meta-Llama-3-8B-Instruct.Q4_1.gguf",
             chat_format="llama-3",
-            n_gpu_layers=100,
-            # n_gpu_layers=-1,
+            # n_gpu_layers=100,
+            n_gpu_layers=-1,
             # n_gpu_layers=1,  # change for metal
             n_ctx = 2048,
             n_batch = 1024,
