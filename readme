@@ -1,0 +1,24 @@
+# Инструкция по проверке работы LLM на графическом процессоре:
+1. Необходимо, чтобы среда выполнения имела доступ к графическому процессору. Я обычно для windows тестирую через torch (cuda_test.py).  Как делать тест для Apple не могу сказать - нет у меня такого аппарата. 
+2. Для запуска LLM на Apple нужно установить llama-cpp-python по команде: 
+!CMAKE_ARGS="-DLLAMA_METAL=on" FORCE_CMAKE=1 pip install --upgrade --force-reinstall llama-cpp-python --no-cache-dir
+3. Запуск теста запуском файла llama3.py
+4. При инициализации модели произойдет вывод информации. Надо найти значение переменной BLAS. 
+
+BLAS = 1 - модель запустилась с использованием GPU, 
+BLAS = 0 - модель запустилась только с использованием CPU.
+
+
+## Installation with Metal
+llama.cpp supports Apple silicon first-class citizen - optimized via ARM NEON, Accelerate and Metal frameworks. Use the FORCE_CMAKE=1 environment variable to force the use of cmake and install the pip package for the Metal support (source).
+
+Example installation with Metal Support:
+
+!CMAKE_ARGS="-DLLAMA_METAL=on" FORCE_CMAKE=1 pip install llama-cpp-python
+
+IMPORTANT: If you have already installed a cpu only version of the package, you need to reinstall it from scratch: consider the following command:
+
+!CMAKE_ARGS="-DLLAMA_METAL=on" FORCE_CMAKE=1 pip install --upgrade --force-reinstall llama-cpp-python --no-cache-dir
+
+## Информация взята с источника:
+https://python.langchain.com/v0.1/docs/integrations/llms/llamacpp/
