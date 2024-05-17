@@ -1,13 +1,12 @@
-# Инструкция по проверке работы LLM на графическом процессоре:
-1. Необходимо, чтобы среда выполнения имела доступ к графическому процессору. Я обычно для windows тестирую через torch (cuda_test.py).  Как делать тест для Apple не могу сказать - нет у меня такого аппарата. 
-2. Для запуска LLM на Apple нужно установить llama-cpp-python по команде: 
+# РРЅСЃС‚СЂСѓРєС†РёСЏ РїРѕ РїСЂРѕРІРµСЂРєРµ СЂР°Р±РѕС‚С‹ LLM РЅР° РіСЂР°С„РёС‡РµСЃРєРѕРј РїСЂРѕС†РµСЃСЃРѕСЂРµ:
+1. РќРµРѕР±С…РѕРґРёРјРѕ, С‡С‚РѕР±С‹ СЃСЂРµРґР° РІС‹РїРѕР»РЅРµРЅРёСЏ РёРјРµР»Р° РґРѕСЃС‚СѓРї Рє РіСЂР°С„РёС‡РµСЃРєРѕРјСѓ РїСЂРѕС†РµСЃСЃРѕСЂСѓ. РЇ РѕР±С‹С‡РЅРѕ РґР»СЏ windows С‚РµСЃС‚РёСЂСѓСЋ С‡РµСЂРµР· torch (cuda_test.py).  РљР°Рє РґРµР»Р°С‚СЊ С‚РµСЃС‚ РґР»СЏ Apple РЅРµ РјРѕРіСѓ СЃРєР°Р·Р°С‚СЊ - РЅРµС‚ Сѓ РјРµРЅСЏ С‚Р°РєРѕРіРѕ Р°РїРїР°СЂР°С‚Р°. 
+2. Р”Р»СЏ Р·Р°РїСѓСЃРєР° LLM РЅР° Apple РЅСѓР¶РЅРѕ СѓСЃС‚Р°РЅРѕРІРёС‚СЊ llama-cpp-python РїРѕ РєРѕРјР°РЅРґРµ: 
 !CMAKE_ARGS="-DLLAMA_METAL=on" FORCE_CMAKE=1 pip install --upgrade --force-reinstall llama-cpp-python --no-cache-dir
-3. Запуск теста запуском файла llama3.py
-4. При инициализации модели произойдет вывод информации. Надо найти значение переменной BLAS. 
+3. Р—Р°РїСѓСЃРє С‚РµСЃС‚Р° Р·Р°РїСѓСЃРєРѕРј С„Р°Р№Р»Р° llama3.py
+4. РџСЂРё РёРЅРёС†РёР°Р»РёР·Р°С†РёРё РјРѕРґРµР»Рё РїСЂРѕРёР·РѕР№РґРµС‚ РІС‹РІРѕРґ РёРЅС„РѕСЂРјР°С†РёРё. РќР°РґРѕ РЅР°Р№С‚Рё Р·РЅР°С‡РµРЅРёРµ РїРµСЂРµРјРµРЅРЅРѕР№ BLAS. 
 
-BLAS = 1 - модель запустилась с использованием GPU, 
-BLAS = 0 - модель запустилась только с использованием CPU.
-
+BLAS = 1 - РјРѕРґРµР»СЊ Р·Р°РїСѓСЃС‚РёР»Р°СЃСЊ СЃ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРµРј GPU, 
+BLAS = 0 - РјРѕРґРµР»СЊ Р·Р°РїСѓСЃС‚РёР»Р°СЃСЊ С‚РѕР»СЊРєРѕ СЃ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёРµРј CPU.
 
 ## Installation with Metal
 llama.cpp supports Apple silicon first-class citizen - optimized via ARM NEON, Accelerate and Metal frameworks. Use the FORCE_CMAKE=1 environment variable to force the use of cmake and install the pip package for the Metal support (source).
@@ -20,5 +19,5 @@ IMPORTANT: If you have already installed a cpu only version of the package, you 
 
 !CMAKE_ARGS="-DLLAMA_METAL=on" FORCE_CMAKE=1 pip install --upgrade --force-reinstall llama-cpp-python --no-cache-dir
 
-## Информация взята с источника:
+## РРЅС„РѕСЂРјР°С†РёСЏ РІР·СЏС‚Р° СЃ РёСЃС‚РѕС‡РЅРёРєР°:
 https://python.langchain.com/v0.1/docs/integrations/llms/llamacpp/
